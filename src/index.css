@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark tech aesthetic - Brittany Chiang inspired */
+    --background: 210 65% 11%;           /* #0A192F */
+    --background-secondary: 219 57% 16%; /* #112240 */
+    --foreground: 219 28% 88%;           /* #CCD6F6 */
+    
+    --primary: 167 100% 70%;             /* #64FFDA - Teal accent */
+    --primary-foreground: 210 65% 11%;
+    
+    --secondary: 219 57% 16%;
+    --secondary-foreground: 219 28% 88%;
+    
+    --muted: 219 57% 16%;
+    --muted-foreground: 219 14% 61%;     /* #8892B0 */
+    
+    --accent: 167 100% 70%;
+    --accent-foreground: 210 65% 11%;
+    
+    --card: 219 57% 16%;
+    --card-foreground: 219 28% 88%;
+    
+    --border: 219 57% 20%;
+    --input: 219 57% 16%;
+    --ring: 167 100% 70%;
+    
+    --radius: 0.5rem;
+    
+    /* Glow effect */
+    --glow: 167 100% 70% / 0.15;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 65% 11%), hsl(219 57% 16%));
+    --gradient-accent: linear-gradient(90deg, hsl(167 100% 70% / 0.1), hsl(167 100% 70% / 0.05));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--glow));
+  }
+  
+  .text-gradient {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
